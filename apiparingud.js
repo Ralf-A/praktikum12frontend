@@ -75,14 +75,14 @@ async function handleFormSubmit(event) {
 }
 
 async function listiraamatud() {
-    const responseData = await getDataAsJson("http://localhost:5000/raamatud");
+    const responseData = await getDataAsJson("https://animagi-raamatud.azurewebsites.net/raamatud/");
     const resultElement = document.getElementById("raamatud_result");
     resultElement.innerHTML = "";
 
     for (var raamat of responseData.raamatud) {
         const fileName = raamat.slice(0, -4);
-        resultElement.innerHTML += '<a href="http://localhost:5000/raamatud/' + fileName + '"  download="' + raamat + '" >' + fileName +
-            '</a> <a href="#" onclick="deleteObject(\'http://localhost:5000/raamatud/' + fileName + '\')" > [kustuta]</a><br />';
+        resultElement.innerHTML += '<a href="https://animagi-raamatud.azurewebsites.net/raamatud/' + fileName + '"  download="' + raamat + '" >' + fileName +
+            '</a> <a href="#" onclick="deleteObject(\'https://animagi-raamatud.azurewebsites.net/raamatud/' + fileName + '\')" > [kustuta]</a><br />';
     }
 }
 
